@@ -1,3 +1,8 @@
-<% @players.each() do |player| %>
-    <li><%= player.name %> <a href="/player/<%= player.id() %>/edit/">Update this player's life</a></li>
-  <% end %>
+<h2>About <%= @player.name %></h2>
+
+<label for="name">Name:</label>
+<%= @player.name %><br>
+<label for="name">Birthday:</label>
+<%= @player.birthday %><br>
+<label for="name">Favorite Color:</label>
+<%= @player.favorite_color %><br>

@@ -1,9 +1,22 @@
-<form id="players" action="/admin/new/" method="post">
+<h2>add a player</h2>
+
+<form id="players" action="/admin/new-player/" method="post">
   <label for="name">NAME</label>
   <input type="text" name="new_player_name">
   <label for="birthday">BIRTHDAY</label>
   <input type="text" name="new_player_birthday">
   <label for="favorite_color">FAVORITE COLOR</label>
   <input type="text" name="new_player_favorite_color">
+  <button name="submit">SUBMIT</button>
+</form>
+
+<h2>teams</h2>
+<form id="teams" action="/admin/new-team/" method="post">
+  <label for="name">NAME</label>
+  <input type="text" name="new_team_name">
+  <label for="mascot">MASCOT</label>
+  <input type="text" name="new_team_mascot">
+  <label for="favorite_color">CITY</label>
+  <input type="text" name="new_team_city">
   <button name="submit">SUBMIT</button>
 </form>

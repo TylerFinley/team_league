@@ -1,0 +1,4 @@
+<h2>Teams</h2>
+<% @teams.each() do |team| %>
+    <li><%= team.name %> <a href="/teams/<%= team.id() %>/">View</a> - <a href="/teams/<%= team.id() %>/edit/">Update</a></li>
+  <% end %>

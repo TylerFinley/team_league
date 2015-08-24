@@ -4,7 +4,6 @@ class CreateTeams < ActiveRecord::Migration
       t.column(:name, :string)
       t.column(:mascot, :string)
       t.column(:city, :string)
-      t.column(:player_id, :int)
       t.timestamps()
     end
   end

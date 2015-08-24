@@ -1,0 +1,5 @@
+<h2>Players</h2>
+
+<% @players.each() do |player| %>
+    <li><%= player.name %> | <a href="/players/<%= player.id() %>/">View</a> - <a href="/players/<%= player.id() %>/edit/">Update</a></li>
+  <% end %>
