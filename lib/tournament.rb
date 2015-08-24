@@ -1,2 +1,2 @@
-class Tournament < ActiveRecord::Base
+class Tournament < DatabaseBackedObject
 end
