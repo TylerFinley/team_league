@@ -44,6 +44,7 @@ end
 
 get('/players/:id/edit/') do
   @player = Player.find(params.fetch('id').to_i)
+  @teams = Team.all
   erb(:player_edit)
 end
 
@@ -63,18 +64,52 @@ get('/teams/:id/') do
 end
 
 patch('/players/:id/') do
-  name = params.fetch('name')
-  birthday = params.fetch('birthday')
-  favorite_color = params.fetch('favorite_color')
   @player = Player.find(params.fetch('id').to_i)
-  @player.update({name: name, birthday: birthday, favorite_color: favorite_color})
+  name = params.fetch('name')
+  if name == ''
+    name = @player.name
+  end
+  birthday = params.fetch('birthday')
+  if birthday == ''
+    birthday = @player.birthday
+  end
+  favorite_color = params.fetch('favorite_color')
+  if favorite_color == ''
+    favorite_color = @player.favorite_color
+  end
+  team_id = params.fetch('team_id')
+  @player = Player.find(params.fetch('id').to_i)
+  @player.update({name: name, birthday: birthday, favorite_color: favorite_color, team_id: team_id})
   redirect('/players/')
 end
 
+delete("/players/:id/delete/") do
+  @player = Player.find(params.fetch("id").to_i)
+  @player.delete()
+  @players = Player.all()
+  redirect('/players/')
+end
+delete("/teams/:id/delete/") do
+  @team = Team.find(params.fetch("id").to_i)
+  @team.delete()
+  @teams = Team.all()
+  redirect('/teams/')
+end
+
 patch('/teams/:id/') do
+  @team = Team.find(params.fetch('id').to_i)
   name = params.fetch('name')
+  if name == ''
+    name = @team.name
+  end
   mascot = params.fetch('mascot')
+  if name == ''
+    name = @team.mascot
+  end
   city = params.fetch('city')
+  if name == ''
+    name = @team.city
+  end
   @team = Team.find(params.fetch('id').to_i)
   @team.update({name: name, mascot: mascot, city: city})
   redirect('/teams/')

@@ -1,4 +1,9 @@
 <h2>Teams</h2>
 <% @teams.each() do |team| %>
     <li><%= team.name %> <a href="/teams/<%= team.id() %>/">View</a> - <a href="/teams/<%= team.id() %>/edit/">Update</a></li>
-  <% end %>
+
+  <form class="btn delete" action="/teams/<%=team.id%>/delete/" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" name="button">delete</button>
+        </form><br></li>
+<% end %>

@@ -6,3 +6,7 @@
 <%= @team.city %><br>
 <label for="name">Mascot:</label>
 <%= @team.mascot %><br>
+<label for="roster">Roster:</label>
+<% @team.players.each do |player| %>
+<%= player.name %><br>
+<% end %>

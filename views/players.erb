@@ -1,5 +1,10 @@
 <h2>Players</h2>
 
 <% @players.each() do |player| %>
-    <li><%= player.name %> | <a href="/players/<%= player.id() %>/">View</a> - <a href="/players/<%= player.id() %>/edit/">Update</a></li>
+    <li><%= player.name %> | <a href="/players/<%= player.id() %>/">View</a> - <a href="/players/<%= player.id() %>/edit/">Update</a> - <form class="btn delete" action="/players/<%=player.id%>/delete/" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" name="button">delete</button>
+        </form><br></li>
+
+
   <% end %>

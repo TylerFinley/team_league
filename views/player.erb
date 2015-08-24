@@ -6,3 +6,7 @@
 <%= @player.birthday %><br>
 <label for="name">Favorite Color:</label>
 <%= @player.favorite_color %><br>
+<% if @player.team_id %>
+<label for="team_id">Team:</label>
+<%= @player.team.name %> <br>
+<% end %>
